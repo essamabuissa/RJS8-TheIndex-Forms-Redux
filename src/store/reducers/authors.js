@@ -3,7 +3,8 @@ import * as actionTypes from "../actions/actionTypes";
 const initialState = {
   authors: [],
   filteredAuthors: [],
-  loading: true
+  loading: true,
+
 };
 
 const reducer = (state = initialState, action) => {
@@ -28,10 +29,13 @@ const reducer = (state = initialState, action) => {
     case actionTypes.POST_AUTHOR:
       return {
         ...state,
-        authors: [action.payload].concat(state.authors)
+        authors: [action.payload, ...state.authors]
       };
+
+
     default:
       return state;
+
   }
 };
 
